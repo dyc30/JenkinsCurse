@@ -27,7 +27,9 @@ pipeline {
 node {
     checkout scm
     stage('Build') {
-        sh 'mvn compile'
+        withMaven(maven: 'Maven Test') {
+            sh 'mvn compile'
+        }
     }
     stage('Test') {
         sh 'mvn test'

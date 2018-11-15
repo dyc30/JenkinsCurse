@@ -42,9 +42,7 @@ node {
         withMaven(maven: 'Maven Test') {
             sh 'mvn package'
         }
-        fileOperations {
-            folderCreateOperation("/home/ivan/jenkins/artefacto")
-            fileCopyOperation("target/*.jar", null, "/home/ivan/jenkins/artefacto", null)
+        fileOperations([fileCopyOperation(excludes: '', flattenFiles: false, includes: 'target/*.jar', targetLocation: '/home/ivan/jenkins/artefacto')])
         }
     }
 }

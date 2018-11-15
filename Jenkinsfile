@@ -39,10 +39,12 @@ node {
         //junit '**/target/*.xml'
     }
     stage('Deploy') {
-        withMaven(maven: 'Maven Test') {
-            sh 'mvn package'
+        try{
+            withMaven(maven: 'Maven Test') {
+                sh 'mvn package'
+            }
+            fileOperations([fileCopyOperation(excludes: '', flattenFiles: false, includes: 'target/*.jar', targetLocation: '/home/ivan/jenkins/artefacto')])
+        }finally {
+            deleteDir()
         }
-        //fileOperations([fileCopyOperation(excludes: '', flattenFiles: false, includes: 'target/*.jar', targetLocation: '/home/ivan/jenkins/artefacto')])
-        fileCopyOperation('target/*.jar', '', '/home/ivan/jenkins/artefacto', false)
-    }
 }

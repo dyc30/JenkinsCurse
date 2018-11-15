@@ -1,3 +1,5 @@
+#!/usr/bin/env groovy   //Para que los IDEs coloreen adecuadamente el código
+
 //Sintaxis declarativa
 /*
 pipeline {
@@ -23,7 +25,6 @@ pipeline {
 */
 
 //Sintaxis de scripting
-//#!/usr/bin/env groovy
 node {
     checkout scm
     stage('Build') {

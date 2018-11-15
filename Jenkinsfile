@@ -34,6 +34,7 @@ node {
     }
     stage('Test') {
         sh 'mvn test'
+        junit '**/target/*.xml'
     }
     stage('Deploy') {
         sh 'mvn package'

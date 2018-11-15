@@ -1,6 +1,7 @@
 //Conexión a SCM - Git
 pipeline {
     agent any
+    stages {
         stage('Build') {
             steps {
                 echo 'Building...'

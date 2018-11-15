@@ -43,6 +43,5 @@ node {
             sh 'mvn package'
         }
         fileOperations([fileCopyOperation(excludes: '', flattenFiles: false, includes: 'target/*.jar', targetLocation: '/home/ivan/jenkins/artefacto')])
-        }
     }
 }

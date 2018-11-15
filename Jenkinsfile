@@ -23,6 +23,7 @@ pipeline {
 */
 
 //Sintaxis de scripting
+#!/usr/bin/env groovy
 node {
     checkout scm
     stage('Build') {

@@ -22,6 +22,7 @@ pipeline {
 }
 */
 
+//Sintaxis de scripting
 node {
     stage('Build') {
         echo 'Building...'

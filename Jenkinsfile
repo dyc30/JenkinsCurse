@@ -26,7 +26,7 @@ pipeline {
 node {
     checkout scm
     stage('Build') {
-        echo 'Building...'
+        sh 'mvn compile'
     }
     stage('Test') {
         echo 'Testing...'

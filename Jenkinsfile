@@ -42,5 +42,6 @@ node {
         withMaven(maven: 'Maven Test') {
             sh 'mvn package'
         }
+        sh 'cp **/target/*.jar /home/ivan/jenkins/artefacto'
     }
 }

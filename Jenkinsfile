@@ -24,6 +24,7 @@ pipeline {
 
 //Sintaxis de scripting
 node {
+    checkout scm
     stage('Build') {
         echo 'Building...'
     }

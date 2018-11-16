@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    stages {
+        stage('Paso 1') {
+            steps {
+                //Mi operacion
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Siempre'
+        }
+        success {
+            echo 'Exito'
+        }
+        failure {
+            echo 'Fallo'
+        }
+        changed {
+            echo 'Cambio'
+        }
+    }
+}

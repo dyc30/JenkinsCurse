@@ -42,8 +42,10 @@ node {
         try{
             withMaven(maven: 'Maven Test') {
                 sh 'mvn package'
+                git add target
+                git commit -am 'OK'
             }
-            fileOperations([fileCopyOperation(excludes: '', flattenFiles: false, includes: 'target/*.jar', targetLocation: '/home/ivan/jenkins/artefacto')])
+            fileOperations([fileCopyOperation(excludes: '', flattenFiles: false, includes: '**/target/*.jar', targetLocation: '/home/ivan/jenkins/artefacto')])
         }finally {
             deleteDir()
         }

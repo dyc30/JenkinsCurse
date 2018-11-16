@@ -3,12 +3,14 @@ node {
         stage('Test') {
             sh 'echo "Fallo!"; exit 0'
         }
+        currentBuild.result = 'SUCCESS'
         echo 'Se ejecuta si exito'
     } catch (e) {
+        currentBuild.result = 'FAILURE'
         echo 'Se ejecuta si fallo'
         throw e
     } finally {
-        def currentResult = currentBuild.result ? 'SUCCESS':'FAILURE'
+        def currentResult = currentBuild.result
         if (currentResult == 'FAILURE') {
             echo 'Se ejecuta si failure'
         }
@@ -17,8 +19,6 @@ node {
         if (previousResult != null && previousResult != currentResult) {
             echo 'Se ejecuta si hay cambio de estado'
         }
-        echo currentResult
-        echo previousResult
         echo 'Se ejecuta siempre'
     }
 }
